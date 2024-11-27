@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL="https://jsonplaceholder.typicode.com/users"
+const URL="https://jsonplaceholder.typicode.com/users/"
 export const getUsers=async()=>{
     try {
         const response=await axios.get(URL);
@@ -21,11 +21,12 @@ export const addUser=async(user)=>{
     
 }
 
-export const deleteUser=async(id,user)=>{
+export const deleteUser=async(id)=>{
     try {
-        const response=await axios.delete(`${URL}${id}`,user);
+        const response=await axios.delete(`${URL}${id}`);
         return response.data ;
     } catch (error) {
+        console.log(error)
         throw new Error("url is unable to delete user")
     }
     
